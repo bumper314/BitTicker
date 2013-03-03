@@ -19,6 +19,8 @@
 @synthesize buy;
 @synthesize sell;
 @synthesize last;
+@synthesize totalBTC;
+@synthesize totalUSD;
 @synthesize dropdownView;
 
 
@@ -82,6 +84,7 @@
 	self.last = [currencyFormatter stringFromNumber:[ticker objectForKey:@"last"]];
 	self.vol = [volumeFormatter stringFromNumber:[ticker objectForKey:@"vol"]];    
 
+    [self updateTotals];
 }
 
 - (IBAction)addSavedAmount:(id)sender {
@@ -102,6 +105,7 @@
   [self.addSavedField setStringValue:@""];
   [self.addWalletField becomeFirstResponder];
   [self.savedTable reloadData];
+  [self updateTotals];
   NSLog(@"Added Saved Amount %@",amountNum);
 }
 
@@ -113,5 +117,13 @@
   [saved deleteWalletAtIndex:(NSUInteger)selected];
   [self.savedTable reloadData];
   [saved writeData];
+  [self updateTotals];
 }
+
+- (void)updateTotals
+{
+	self.totalBTC = [currencyFormatter stringFromNumber:[saved totalBTC]];
+	self.totalUSD = [currencyFormatter stringFromNumber:[saved totalUSD]];
+}
+
 @end

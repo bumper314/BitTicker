@@ -94,4 +94,19 @@
   exchangeRate = [[ticker objectForKey:@"last"] doubleValue];
 }
 
+- (NSNumber *)totalBTC
+{
+    double total = 0;
+    for(NSDictionary *wallet in wallets) {
+        total += [[wallet objectForKey:@"amount"] doubleValue];
+    }
+    return [NSNumber numberWithDouble:total];
+}
+
+- (NSNumber *)totalUSD
+{
+    double total = [[self totalBTC] doubleValue];
+    return [NSNumber numberWithDouble:(total*exchangeRate)];
+}
+
 @end

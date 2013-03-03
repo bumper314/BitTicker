@@ -19,4 +19,6 @@
 - (void)deleteWalletAtIndex:(NSUInteger)wallet;
 - (void)writeData;
 - (void)readData;
+- (NSNumber *)totalBTC;
+- (NSNumber *)totalUSD;
 @end

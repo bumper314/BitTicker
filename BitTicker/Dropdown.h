@@ -27,6 +27,7 @@
 }
 - (IBAction)addSavedAmount:(id)sender;
 - (IBAction)deleteSavedAmount:(id)sender;
+- (void)updateTotals;
 
 @property (copy) NSNumber *tickerValue;
 
@@ -36,6 +37,8 @@
 @property (strong) NSString *buy;
 @property (strong) NSString *sell;
 @property (strong) NSString *last;
+@property (strong) NSString *totalBTC;
+@property (strong) NSString *totalUSD;
 
 @property (strong) IBOutlet NSView *dropdownView;
 @property (weak) IBOutlet NSTableView *savedTable;
