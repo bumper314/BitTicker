@@ -48,7 +48,7 @@
   NSDictionary *dict = [wallets objectAtIndex:rowIndex];
   if ([column.identifier isEqualToString:@"amount"]) {
     NSNumber *amount = [dict objectForKey:@"amount"];
-    return [NSString stringWithFormat:@"%.2f BTC",[amount doubleValue]];
+    return [NSString stringWithFormat:@"%.2f",[amount doubleValue]];
   } else if ([column.identifier isEqualToString:@"wallet"]) {
     return [dict objectForKey:@"name"];
   } else if ([column.identifier isEqualToString:@"value"]) {
